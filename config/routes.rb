@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :entries,             only: [:create, :destroy]
+  resources :entries,             only: [:new, :show, :create, :destroy]
   resources :relationships,       only: [:create, :destroy]
 			  	
 end

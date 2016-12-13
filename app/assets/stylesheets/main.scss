@@ -238,9 +238,9 @@ input {
   }
 }
 
-/* microposts */
+/* entries */
 
-.microposts {
+.entries {
   list-style: none;
   padding: 0;
   li {
@@ -251,7 +251,7 @@ input {
     margin-top: 5em;
     padding-top: 0;
   }
-  .content {
+  .body {
     display: block;
     margin-left: 60px;
     img {
