@@ -18,5 +18,5 @@ Rails.application.routes.draw do
 
   resources :entries,              only: [:new, :show, :create, :destroy]
   resources :relationships,        only: [:create, :destroy]
-	resources :comments,             only: [:index, :create]
+	resources :comments
 end

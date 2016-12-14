@@ -13,13 +13,14 @@
   </aside>
   <div class="col-md-8">
     <h3>Title: <%= @entry.title %></h3>
-    <p><%= @entry.body %></p>
+    <p><%= simple_format @entry.body %></p>
+    <span id="comments-<%= @entry.id %>"></span>
+    <ol class="entries" id="comments-<%= @entry.id %>">
     <% if @comments.any? %>
-      <ol class="entries" id="comments">
-        <%= render @comments %>
-      </ol>
-      <%= will_paginate @comments %>
+      <%= render @comments %>
     <% end %>
+    </ol>
+    <%= will_paginate @comments %>
     <%= render 'partial/comment_form' if logged_in? %>
   </div>
 </div>

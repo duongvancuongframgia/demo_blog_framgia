@@ -8,7 +8,7 @@
   	<%= image_tag entry.picture.url if entry.picture? %>
     <%= link_to "read more", entry%>
   </span>
-  <span class="timestamp">
+  <span class="timestamp" id="comments_count-<%= entry.id %>">
     <%= pluralize(entry.comments.count, "comment") %>
   </span>
   <span class="timestamp">

@@ -1,10 +1,11 @@
-<%= form_for(@comment, remote: true) do |f| %>
-  <%= render 'partial/error_messages', object: f.object %>
-  <div class="field">
-    <span>Comment</span>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.hidden_field :entry_id, :value => @entry.id %>
-    <%= f.text_area :content, placeholder: "Comment...", class: 'form-control'%>
-  </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
+<% if (current_user.following?(@entry.user) || current_user?(@entry.user))%>
+	<%= form_for(@comment, remote: true) do |f| %>
+	  <%= render 'partial/error_messages', object: f.object %>
+	  <div class="field">
+	    <span>Comment</span>
+	    <%= f.hidden_field :entry_id, :value => @entry.id %>
+	    <%= f.text_area :content, placeholder: "Comment...", class: 'form-control', id: "comment_content-#{ @entry.id }" %>
+	  </div>
+	  <%= f.submit "Post", class: "btn btn-primary" %>
+	<% end %>
 <% end %>
