@@ -9,7 +9,7 @@
     <%= link_to "read more", entry%>
   </span>
   <span class="timestamp" id="comments_count-<%= entry.id %>">
-    <%= pluralize(entry.comments.count, "comment") %>
+    <%= link_to "#{pluralize(entry.comments.count, "comment")}", '#', remote: true%>
   </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(entry.created_at) %> ago.
