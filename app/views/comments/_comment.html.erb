@@ -4,12 +4,18 @@
   <span class="body" id="comment_content-<%= comment.id %>">
   	<%= comment.content %>
   </span>
+  <span class="timestamp">
   <% if current_user?(comment.user) %>
-    <%= link_to "edit", edit_comment_path(comment), remote: true%>
+    <%= link_to edit_comment_path(comment), remote: true, :class => "btn" do %>
+      <i class="glyphicon glyphicon-pencil">EDIT</i>
+    <% end %> 
    <% end %>
   <% if current_user?(comment.user) %>
-    <%= link_to "delete", comment, remote: true, method: :delete, data: { confirm: "You sure?" } %>
+    <%= link_to comment, remote: true, method: :delete, data: { confirm: "You sure?" }, :class => "btn" do %>
+      <i class="glyphicon glyphicon-trash">DELETE</i>
+    <% end %>
   <% end %>
+  </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(comment.created_at) %> ago.
   </span>

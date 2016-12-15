@@ -1,20 +1,29 @@
 <li id="entry-<%= entry.id %>">
-  <%= link_to gravatar_for(entry.user, size: 50), entry.user %>
-  <span class="user">Author: <%= link_to entry.user.name, entry.user %></span>
-  <span class="body">
-    <h3><%= entry.title %></h3>
-  	<!-- <%= entry.body %> -->
-    <%= truncate(entry.body, :length => 80) %>
-  	<%= image_tag entry.picture.url if entry.picture? %>
-    <%= link_to "read more", entry%>
-  </span>
-  <span class="timestamp" id="comments_count-<%= entry.id %>">
-    <%= pluralize(entry.comments.count, "comment") %>
-  </span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(entry.created_at) %> ago.
-    <% if current_user?(entry.user) %>
-      <%= link_to "delete", entry, method: :delete, data: { confirm: "You sure?" } %>
-    <% end %>
-  </span>
-</li>
+<div class="well">
+    <div class="media">
+    <%= link_to gravatar_for(entry.user, size: 100), entry.user %>
+    <div class="media-body">
+      <h4 class="media-heading"><%= entry.title %></h4>
+      <p class="text-right">Author: <%= link_to entry.user.name, entry.user %></p>
+      <p><%= truncate(entry.body, :length => 150) %><%= link_to "read more", entry%></p>
+      <ul class="list-inline list-unstyled">
+        <li>
+          <span><i class="glyphicon glyphicon-calendar"></i>Posted <%= time_ago_in_words(entry.created_at) %> ago.</span>
+        </li>
+        <li>|</li>
+        <span id="comments_count-<%= entry.id %>" >
+          <i class="glyphicon glyphicon-comment"></i> <%= pluralize(entry.comments.count, "comment") %>
+        </span>
+        <li>|</li>
+        <span>
+        <% if current_user?(entry.user) %>
+          <%= link_to entry, method: :delete, data: { confirm: "You sure?" } do%>
+            <i class="glyphicon glyphicon-trash">DELETE</i>
+          <% end %>  
+        <% end %>
+        </span>
+      </ul>
+    </div>
+  </div>
+</div>
+</li>  

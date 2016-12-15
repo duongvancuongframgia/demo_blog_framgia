@@ -1,3 +1,2 @@
 $("#comment-<%= @entry.id %>").html("<%= escape_javascript(render(@entry.comments)) %>");
 $("#comment_content-<%= @entry.id %>").val('');
-// $("#comments_count-<%= @entry.id %>").html('<%= link_to "#{pluralize(@entry.comments.count, "comment")}", '#', remote: true%>');
