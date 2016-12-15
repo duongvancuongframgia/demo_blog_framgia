@@ -17,7 +17,7 @@
         <li>|</li>
         <span>
         <% if current_user?(entry.user) %>
-          <%= link_to entry, method: :delete, data: { confirm: "You sure?" } do%>
+          <%= link_to entry, method: :delete, data: { confirm: "You sure?" }, :class => "btn btn-danger" do%>
             <i class="glyphicon glyphicon-trash">DELETE</i>
           <% end %>  
         <% end %>

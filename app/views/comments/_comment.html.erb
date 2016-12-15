@@ -6,12 +6,12 @@
   </span>
   <span class="timestamp">
   <% if current_user?(comment.user) %>
-    <%= link_to edit_comment_path(comment), remote: true, :class => "btn" do %>
+    <%= link_to edit_comment_path(comment), remote: true, :class => "btn btn-warning" do %>
       <i class="glyphicon glyphicon-pencil">EDIT</i>
     <% end %> 
    <% end %>
   <% if current_user?(comment.user) %>
-    <%= link_to comment, remote: true, method: :delete, data: { confirm: "You sure?" }, :class => "btn" do %>
+    <%= link_to comment, remote: true, method: :delete, data: { confirm: "You sure?" }, :class => "btn btn-danger" do %>
       <i class="glyphicon glyphicon-trash">DELETE</i>
     <% end %>
   <% end %>
